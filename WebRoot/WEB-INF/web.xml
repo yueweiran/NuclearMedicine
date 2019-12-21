@@ -1,31 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="2.5" 
-	xmlns="http://java.sun.com/xml/ns/javaee" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
-	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
-  
-
-<!--   <listener>  
-        <listener-class>cn.med.test.TomcatListener</listener-class>  
-  </listener>    -->
   <servlet>
-         <servlet-name>SpringMVC-servlet</servlet-name>
-         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-         <init-param>
-                     <param-name>contextConfigLocation</param-name>
-                     <param-value>classpath:applicationContext.xml</param-value>
-         </init-param>
+    <servlet-name>SpringMVC-servlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:applicationContext.xml</param-value>
+    </init-param>
   </servlet>
-  
-
   <servlet-mapping>
-         <servlet-name>SpringMVC-servlet</servlet-name>
-         <url-pattern>/</url-pattern>
+    <servlet-name>SpringMVC-servlet</servlet-name>
+    <url-pattern>/</url-pattern>
   </servlet-mapping>
-  
-  
 </web-app>
