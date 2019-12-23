@@ -53,9 +53,9 @@
 
 			    <!-- 一级菜单(1) -->
 			 <li id="li1">
-                <a _href="department.jsp">
+                <a _href="report/report.jsp">
                     <i class="layui-icon">&#xe770;</i>
-                    <cite>人员管理</cite>
+                    <cite>填报</cite>
 
                 </a>
             </li>
