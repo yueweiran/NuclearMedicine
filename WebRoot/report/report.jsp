@@ -9,7 +9,7 @@
   
   <head>
     <meta charset="UTF-8">
-    <title>欢迎页面</title>
+    <title>全国核医学普查信息填报系统</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
@@ -24,11 +24,12 @@
     <![endif]-->
  <script src="../js/jquery-1.10.2.js"></script>
   <script src="../js/step.js"></script>
+      <script src="../laydate/laydate.js"></script>
   <script src="../layui/layui.js"></script>
   <script type="text/javascript" src="../layer/layer.js"></script>
 <style>
 .layui-form-label{
-	width:110px;
+	width:116px;
 }
 .layui-input{
 	width:200px;
@@ -43,6 +44,10 @@
 	margin-top:6px;
 	margin-left:38px;
 }
+ .layui-table td, .layui-table th{
+    	text-align: center;
+    }
+
 </style>
   </head>
   
@@ -247,17 +252,17 @@
 					    <h2 class="layui-colla-title">请选择要开展的业务</h2>
 					    <div class="layui-colla-content layui-show">
 					     <div class="layui-form-item">
-						    <div  class="layui-input-block">
+						    <div  class="layui-input-block" style="margin-left: 50px;">
 						      <input type="checkbox" name="business"  title="单光子显像" value="单光子显像" lay-filter="ywfilter">
 						      <input type="checkbox" name="business"  title="正电子显像" value="正电子显像" lay-filter="ywfilter">
 						      <input type="checkbox" name="business"  title="符合线路显像" value="符合线路显像" lay-filter="ywfilter">
 						      <input type="checkbox" name="business"  title="脏器功能测定" value="脏器功能测定" lay-filter="ywfilter">
 						      <input type="checkbox" name="business"  title="放射免疫分析" value="放射免疫分析" lay-filter="ywfilter">
-						      <input type="checkbox" name="business"  title="化学发光信息" value="化学发光信息" lay-filter="ywfilter">
+						      <input type="checkbox" name="business"  title="化学发光分析" value="化学发光分析" lay-filter="ywfilter">
 						      <input type="checkbox" name="business"  title="门诊" value="门诊" lay-filter="ywfilter">
 						      <input type="checkbox" name="business"  title="核素治疗" value="核素治疗"lay-filter="ywfilter">
 						      <input type="checkbox" name="business"  title="病房" value="病房" lay-filter="ywfilter">
-						      <input type="checkbox" name="business"  title="实验室" value="实验室" lay-filter="ywfilter">
+						      <input type="checkbox" name="business"  title="科研实验室" value="科研实验室" lay-filter="ywfilter">
 						      <input type="checkbox" name="business"  title="其他" value="其他" lay-filter="ywfilter">
 						    </div>
 						  </div>
@@ -269,7 +274,21 @@
 					</form>
 		        	</div>
 		        </div>
-		        <div class="eis-stepContent"><h2>业务信息</h2></div>
+		        <div class="eis-stepContent">
+		        <div class="layui-row">
+			    <div class="layui-col-md2">
+			     <div class="step-content">
+			     <ul class="step-ul"></ul>
+			     </div>
+			    </div>
+			    <div class="layui-col-md10">
+			      <div class="fmcontent1">
+		        		<iframe id="iframebody"  frameborder="0" style="width: 100%;height:100%" src="" scrolling="yes" class="x-iframe"></iframe>
+					
+		        	</div>
+			    </div>
+			  </div>
+		        </div>
 		        <div class="eis-stepContent"><h2>人员信息</h2></div>
 		        <div class="eis-stepContent"><h2>教学开展</h2></div>
 		        <div class="eis-stepContent"><h2>科研开展</h2></div>
@@ -281,126 +300,7 @@
   </body>
   
 
- <script>
- layui.use('form', function(){
-	  var form = layui.form;
-	  
-	  //各种基于事件的操作，下面会有进一步介绍
-	  form.on('checkbox(ywfilter)', function(data){
-		  if(data.value=="其他" && data.elem.checked){
-			  $(data.othis).after(' <input type="text" name="other" style="width: 120px;display: inline-table;vertical-align: bottom;height: 30px;"  placeholder="请输入其他信息"  class="layui-input">');
-		  }
-		  if(data.value=="其他" && !data.elem.checked){
-			  $("input[name='other']").remove();
-		  }
-		  
-		});    
-	  
-	   layui.form.on('select(levelfilter)', function (data) {
-		  if (data.value == "") {
-		  $('#levelcon').html('<option value="">请选择</option>');
-		  layui.form.render("select");
-		  }
-		  else {
-			  if (data.value == "0") {
-			  $('#levelcon').html('<option value="">请选择</option>')
-			  $('#levelcon').append(new Option("甲等", 0));
-			  $('#levelcon').append(new Option("乙等", 1));
-			  $('#levelcon').append(new Option("丙等", 2));
-			  $('#levelcon').append(new Option("未评", 3));
-			  $('#levelcon').append(new Option("其他", 4));
-			  $('#levelcon').append(new Option("未知", 5));
-			  }else if (data.value == "1") {
-			  $('#levelcon').html('<option value="">请选择</option>')
-			  $('#levelcon').append(new Option("甲等", 0));
-			  $('#levelcon').append(new Option("乙等", 1));
-			  $('#levelcon').append(new Option("合格", 2));
-			  $('#levelcon').append(new Option("未定等", 3));
-			  $('#levelcon').append(new Option("未知", 4));
-			  }
-		  } 
-		  layui.form.render("select");
-	   });
-	});
- layui.use('element', function(){
-	  var element = layui.element;
-	});
-    $(function(){
-        $('.box').step({
-            stepDirection:'x',//x代表水平步骤，y 竖直步骤，默认x
-            showStepButton:true,//是否显示上一步下一步的按钮 true代表显示，默认false
-            stepCount:6,//步数：默认3
-            stepTitles:['科室概况','业务信息','人员信息','教学开展','科研开展','意见与建议'],
-        });
-      
-    })
-     function checkFormOne(isstep){
-    	 var alertcon='';
-    	  //将页面全部复选框选中的值拼接到一个数组中
-        var arr_box = [];
-    		  $(".verif[verification='true']").each(function(){
-    			
-    	        	if($(this).val()==""){
-    	        		alertcon=$(this).attr("tstitle");
-    	        		 isstep=false;
-    	        		 return false; 
-    	        	}else{
-    	        		if($(this).attr("name")=="email" && !/[a-zA-Z0-9]{1,10}@[a-zA-Z0-9]{1,5}\.[a-zA-Z0-9]{1,5}/.test($(this).val())){
-    	 				   alertcon="邮箱格式不正确";
-    	 				   isstep=false;
-    	 				  return false; 
-    	 				}
-    					if($(this).attr("name")=="year" && !/[0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3}/.test($(this).val())){
-    	 				   alertcon="年份格式不正确";
-    	 				   isstep=false;
-    	 				  return false; 
-    	 				}
-    					if($(this).attr("name")=="phonenumber" && !/^(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14}$/.test($(this).val())){
-    					   alertcon="座机号码格式不正确";
-    					   isstep=false;
-    					   return false; 
-    					}
-    					if($(this).attr("name")=="mobilphonenumber" && !/^1[3|4|5|7|8][0-9]{9}$/.test($(this).val())){
-    					   alertcon="手机号码格式不正确";
-    					   isstep=false;
-    					   return false; 
-    					}
-    					if($(this).attr("name")=="postcode" && ! /^[1-9][0-9]{5}$/.test($(this).val())){
-    					   alertcon="邮编格式不正确";
-    					   isstep=false;
-    					   return false; 
-    					}
-    	        	} 
-    	        	
-    	          });
-    		 
-       if(isstep){
-    	   $('input[type=checkbox]:checked').each(function() {
-           	if($(this).attr("name")=="business"){
-           		if($(this).val()=="其他"){
-              		 	arr_box.push($("input[name='other']").val());
-   	           	}else{
-   	           		arr_box.push($(this).val());
-   	           	}
-           	}
-             
-             });
-    	   if(arr_box.length<=0){
-           	alertcon="请至少选择一项业务";
-           	isstep=false;
-           }else{
-        	   isstep=true;
-           }
-       }
-       if(!isstep){
-    	   layer.alert(alertcon);
-       }
-    	  return isstep;
-        	
-        
-      
-        //console.log(arr_box);
-        }
-  
-</script>
+<script src="../js/report.js"></script>
+
+
 </html>

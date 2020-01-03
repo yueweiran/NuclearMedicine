@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>全国核医学普查信息填报系统</title>
 
    <link rel="stylesheet" href="./layui/css/layui.css">
     <script type="text/javascript" src="../js/jquery-1.10.2.js"></script>
@@ -46,14 +46,14 @@
         </li> -->
         <li class="layui-nav-item layui-this">
         <a _href="report.jsp">  
-	        <i class="layui-icon">&#xe770;</i>
+	        <i class="layui-icon">&#xe63c;</i>
 	        <cite>信息填报</cite>
         </a>
         </li>
          <li class="layui-nav-item">
-        <a _href="../department.jsp">  
+        <a _href="">  
 	        <i class="layui-icon">&#xe770;</i>
-	        <cite>部门管理</cite>
+	        <cite>人员管理</cite>
         </a>
         </li>
       </ul>

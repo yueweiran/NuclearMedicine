@@ -195,11 +195,17 @@
                 }
                 function _stepNextMove(i){
                 	var isstep=true;
+                	var obj={};
                 	if(i==0){
-                		isstep=checkFormOne(isstep);
+                		obj=checkFormOne(isstep);
                 	}
+                	isstep=obj.isstep;
                 	if(isstep){
                 		 i+=1;
+                		 if(i==1){
+                			 initStepTwo(obj);
+                		 }
+                		
                          if(i>=that.settings.stepCount-1)i=that.settings.stepCount-1;
                          $stepIcon.eq(i).trigger('click')
                          _initStepCon(i);

@@ -11,3 +11,71 @@
     margin-right: auto;
     margin-bottom:80px;
 }
+.layui-col-md2{
+	min-height:90%;
+}
+.layui-col-md10{
+	min-height:90%;
+}
+.step-content {
+    width: 80%;
+    border-top: 2px solid #3197FD;
+    margin-left: 2vw;
+    margin-top: 2vw;
+}
+.step-ul li {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    position: relative;
+    cursor: pointer;
+    border-left:1px solid #CCCCCC;
+    border-bottom:1px solid #CCCCCC;
+    border-right:1px solid #CCCCCC;
+    text-align: center;
+}
+.step-ul li:hover{
+background: #f8f8f8;
+    color: #3197FD;
+}
+.step-li{
+color: #999;
+}
+.step-click{
+background: #f8f8f8;
+    color: #3197FD;
+ }
+ .rightywcon{
+ 	width:90%;
+ 	border:1px solid #CCCCCC;
+ 	height: 100%;
+ 	margin-top:4vw;
+ }
+ .fmcontent1{
+ 	    width: 100%;
+    margin-top: 2vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 80px;
+ }
+ .adddiv{
+    outline: 0;
+    cursor: pointer;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    background: #3197FD;
+    text-align: center;
+    border: 1px solid #3197FD;
+    color: #fff;
+    margin-right: 14px;
+    border-radius: 2px;
+    width:52px;
+    margin-top:0.2vw;
+    margin-left: 3vw;
+ }
+  
+    .delbtn{
+    	cursor: pointer;
+    }
